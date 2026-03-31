@@ -42,16 +42,139 @@
                 <p style="color: var(--text-mid); margin-bottom: 2rem;">Describe your case to get instant rights analysis.</p>
               </div>
 
-              <div class="input-group">
-                <textarea id="legal-input" placeholder="Yahan apni samasya likhein... Example: Mera landlord bina wajah nikal raha hai" style="border-radius: 20px; border: 1px solid var(--glass-border); padding: 1.5rem; width: 100%; min-height: 200px; font-family: inherit; font-size: 1.1rem;"></textarea>
+              <!-- Feature Tabs -->
+              <div class="demo-tabs" style="display: flex; flex-wrap: wrap; gap: 1rem; margin-bottom: 2rem; border-bottom: 1px solid var(--glass-border); padding-bottom: 1rem;">
+                <!-- Core Tools -->
+                <button class="tab-btn active" data-target="tab-rights">⚖️ Rights & Roadmap</button>
+                <button class="tab-btn" data-target="tab-document">📄 Kaagaz Samjho</button>
+                <button class="tab-btn" data-target="tab-drafting">✍️ Legal Drafting</button>
+                
+                <!-- Advanced Tools -->
+                <button class="tab-btn" data-target="tab-judge">👨‍⚖️ AI Judge</button>
+                <button class="tab-btn" data-target="tab-saboot">📜 Saboot Checker</button>
+                <button class="tab-btn" data-target="tab-cost">💰 Cost Estimator</button>
+                <button class="tab-btn" data-target="tab-negotiation">🗣️ Negotiation Bot</button>
+                <button class="tab-btn" data-target="tab-pil">🏛️ PIL Ideator</button>
               </div>
 
-              <div class="input-actions" style="margin-top: 2rem; display: flex; flex-direction: column; gap: 1.5rem;">
-                <button id="voice-btn" class="btn btn-outline btn-full btn-magnetic">
-                  <span class="icon">🎙</span> Bolke Batayein (Speak)
-                </button>
-                <div id="submit-btn" class="btn btn-primary btn-full btn-magnetic" style="cursor: pointer; text-align: center;">⚖ APNA HAQ JAANEIN →</div>
+              <div id="tab-rights" class="tab-content active" style="display: block;">
+                <div class="input-group">
+                  <textarea id="legal-input" placeholder="Yahan apni samasya likhein... Example: Mera landlord bina wajah nikal raha hai" style="border-radius: 20px; border: 1px solid var(--glass-border); padding: 1.5rem; width: 100%; min-height: 200px; font-family: inherit; font-size: 1.1rem;"></textarea>
+                </div>
+                <div class="input-actions" style="margin-top: 2rem; display: flex; flex-direction: column; gap: 1.5rem;">
+                  <div style="display: flex; gap: 1rem;">
+                     <select id="ui-language" style="border-radius: 10px; border: 1px solid var(--glass-border); padding: 1rem; width: 40%; background: var(--bg-surface); color: var(--text-bright); font-size: 1rem; cursor: pointer;">
+                        <option value="Hindi">हिंदी (Hindi)</option>
+                        <option value="English">English</option>
+                        <option value="Hinglish">Hinglish</option>
+                        <option value="Bengali">বাংলা (Bengali)</option>
+                        <option value="Marathi">मराठी (Marathi)</option>
+                        <option value="Telugu">తెలుగు (Telugu)</option>
+                        <option value="Tamil">தமிழ் (Tamil)</option>
+                        <option value="Gujarati">ગુજરાતી (Gujarati)</option>
+                        <option value="Urdu">اردو (Urdu)</option>
+                        <option value="Kannada">ಕನ್ನಡ (Kannada)</option>
+                        <option value="Odia">ଓଡ଼ିଆ (Odia)</option>
+                        <option value="Malayalam">മലയാളം (Malayalam)</option>
+                        <option value="Punjabi">ਪੰਜਾਬੀ (Punjabi)</option>
+                        <option value="Assamese">অসমীয়া (Assamese)</option>
+                        <option value="Maithili">मैथिली (Maithili)</option>
+                     </select>
+                     <button id="voice-btn" class="btn btn-outline btn-magnetic" style="flex: 1;">
+                       <span class="icon">🎙</span> Speak
+                     </button>
+                  </div>
+                  <div id="submit-rights-btn" class="btn btn-primary btn-full btn-magnetic" style="cursor: pointer; text-align: center;">⚖ APNA HAQ JAANEIN →</div>
+                </div>
               </div>
+
+              <div id="tab-document" class="tab-content" style="display: none;">
+                <div class="input-group" id="drop-zone" style="border: 2px dashed var(--monolith-gold); border-radius: 20px; padding: 3rem 1.5rem; text-align: center; cursor: pointer; background: rgba(255,184,0,0.05); transition: all 0.3s ease;">
+                  <p style="color: var(--monolith-gold); font-size: 1.2rem; font-weight: 600;">📁 PDF Upload Karein</p>
+                  <span style="color: var(--text-mid); font-size: 0.9rem;">Ya format paste karein (10MB max). 100% Privacy - no files stored.</span>
+                  <input type="file" id="file-input" accept=".pdf,.txt" style="display: none;" />
+                </div>
+                <div class="input-actions" style="margin-top: 2rem;">
+                  <div id="submit-doc-btn" class="btn btn-primary btn-full btn-magnetic" style="cursor: pointer; text-align: center;">📄 KAAGAZ SAMJHO →</div>
+                </div>
+              </div>
+
+              <div id="tab-drafting" class="tab-content" style="display: none;">
+                <div class="input-group" style="display: flex; flex-direction: column; gap: 1rem;">
+                  <label style="color: var(--text-mid);">Document Type:</label>
+                  <select id="draft-type" style="border-radius: 10px; border: 1px solid var(--glass-border); padding: 1rem; width: 100%; background: var(--bg-surface); color: var(--text-bright); font-size: 1.1rem; cursor: pointer;">
+                    <option value="RTI Application">Right to Information (RTI)</option>
+                    <option value="Legal Notice">Legal Notice</option>
+                    <option value="Police Complaint">Police Complaint / FIR Request</option>
+                    <option value="Consumer Forum Complaint">Consumer Forum Complaint</option>
+                    <option value="Rental Agreement Dispute Letter">Rental Dispute Letter</option>
+                  </select>
+                  
+                  <label style="color: var(--text-mid); margin-top: 1rem;">Detailed Facts (Names, Dates, Issue):</label>
+                  <textarea id="draft-details" placeholder="Important details like sender name, receiver name, dates, and what happened..." style="border-radius: 15px; border: 1px solid var(--glass-border); padding: 1rem; width: 100%; min-height: 150px; font-family: inherit; font-size: 1.1rem;"></textarea>
+                </div>
+                <div class="input-actions" style="margin-top: 2rem;">
+                  <div id="submit-draft-btn" class="btn btn-primary btn-full btn-magnetic" style="cursor: pointer; text-align: center;">✍️ DRAFT CREATE KAREIN →</div>
+                </div>
+              </div>
+
+              <!-- ADVANCED 5 FEATURE TABS -->
+
+              <!-- 4. AI Judge -->
+              <div id="tab-judge" class="tab-content" style="display: none;">
+                <div class="input-group">
+                  <label style="color: var(--text-mid);">Describe the dispute from both sides:</label>
+                  <textarea id="judge-details" placeholder="Ravi sold me a laptop, but it was broken. Ravi says I broke it..." style="border-radius: 15px; border: 1px solid var(--glass-border); padding: 1.5rem; width: 100%; min-height: 200px; font-family: inherit; font-size: 1.1rem; margin-top: 1rem;"></textarea>
+                </div>
+                <div class="input-actions" style="margin-top: 2rem;">
+                  <div id="submit-judge-btn" class="btn btn-primary btn-full btn-magnetic" style="cursor: pointer; text-align: center;">👨‍⚖️ PREDICT VERDICT →</div>
+                </div>
+              </div>
+
+              <!-- 5. Saboot Checker -->
+              <div id="tab-saboot" class="tab-content" style="display: none;">
+                <div class="input-group">
+                  <label style="color: var(--text-mid);">List the evidence you have (separated by commas):</label>
+                  <textarea id="saboot-details" placeholder="WhatsApp chat screenshots, an unsigned contract, call recording without consent..." style="border-radius: 15px; border: 1px solid var(--glass-border); padding: 1.5rem; width: 100%; min-height: 200px; font-family: inherit; font-size: 1.1rem; margin-top: 1rem;"></textarea>
+                </div>
+                <div class="input-actions" style="margin-top: 2rem;">
+                  <div id="submit-saboot-btn" class="btn btn-primary btn-full btn-magnetic" style="cursor: pointer; text-align: center;">📜 ANALYZE ADMISSIBILITY →</div>
+                </div>
+              </div>
+
+              <!-- 6. Cost Estimator -->
+              <div id="tab-cost" class="tab-content" style="display: none;">
+                <div class="input-group">
+                  <label style="color: var(--text-mid);">Explain your case to estimate financial/time costs:</label>
+                  <textarea id="cost-details" placeholder="I want to file for mutual consent divorce in Mumbai..." style="border-radius: 15px; border: 1px solid var(--glass-border); padding: 1.5rem; width: 100%; min-height: 200px; font-family: inherit; font-size: 1.1rem; margin-top: 1rem;"></textarea>
+                </div>
+                <div class="input-actions" style="margin-top: 2rem;">
+                  <div id="submit-cost-btn" class="btn btn-primary btn-full btn-magnetic" style="cursor: pointer; text-align: center;">💰 ESTIMATE COSTS →</div>
+                </div>
+              </div>
+
+              <!-- 7. Negotiation Bot -->
+              <div id="tab-negotiation" class="tab-content" style="display: none;">
+                <div class="input-group">
+                  <label style="color: var(--text-mid);">Who are you trying to settle with, and what is the issue?</label>
+                  <textarea id="negotiate-details" placeholder="My former landlord is refusing to return my Rs 50,000 security deposit. I am calling him today." style="border-radius: 15px; border: 1px solid var(--glass-border); padding: 1.5rem; width: 100%; min-height: 200px; font-family: inherit; font-size: 1.1rem; margin-top: 1rem;"></textarea>
+                </div>
+                <div class="input-actions" style="margin-top: 2rem;">
+                  <div id="submit-negotiation-btn" class="btn btn-primary btn-full btn-magnetic" style="cursor: pointer; text-align: center;">🗣️ GENERATE SCRIPT →</div>
+                </div>
+              </div>
+
+              <!-- 8. PIL Ideator -->
+              <div id="tab-pil" class="tab-content" style="display: none;">
+                <div class="input-group">
+                  <label style="color: var(--text-mid);">Describe the massive social or public-interest issue:</label>
+                  <textarea id="pil-details" placeholder="The local municipality is dumping toxic waste into the village pond causing disease..." style="border-radius: 15px; border: 1px solid var(--glass-border); padding: 1.5rem; width: 100%; min-height: 200px; font-family: inherit; font-size: 1.1rem; margin-top: 1rem;"></textarea>
+                </div>
+                <div class="input-actions" style="margin-top: 2rem;">
+                  <div id="submit-pil-btn" class="btn btn-primary btn-full btn-magnetic" style="cursor: pointer; text-align: center;">🏛️ EVALUATE PIL →</div>
+                </div>
+              </div>
+
             </aside>
 
             <!-- Right Panel: Output -->
@@ -73,27 +196,14 @@
               </div>
 
               <div id="output-results" class="output-state hidden">
-                <div class="results-container">
-                  <section class="result-box bento-box" style="margin-bottom: 2rem;">
-                    <div class="section-label">SUMMARY</div>
-                    <div id="result-summary" style="margin-top: 1rem; font-size: 1.2rem; line-height: 1.6;"></div>
-                  </section>
-                  <section class="result-box bento-box">
-                    <div class="section-label">IPC SECTIONS</div>
-                    <div id="result-law" class="gradient-text" style="font-weight: 800; font-size: 1.5rem; margin-top: 1rem;"></div>
-                    <p id="result-law-desc" style="color: var(--text-mid); margin-top: 0.5rem;"></p>
-                  </section>
-
-                  <div class="result-actions" style="margin-top: 3rem; display: flex; gap: 1rem;">
-                    <button class="btn btn-primary">📄 DOWNLOAD NOTICE</button>
-                    <button class="btn btn-outline">🗺 FIND AID CENTER</button>
-                  </div>
+                <div class="results-container" id="results-dynamic-container">
+                  <!-- The results will be injected here dynamically based on the active tab -->
                 </div>
               </div>
             </section>
           </div>
         </main>
-
+        
         <!-- Footer -->
         <footer id="footer">
           <div class="container">
@@ -124,9 +234,24 @@
       </div>
     </div>
 
+    <!-- Drafting Modal (Must be outside GSAP smooth-wrapper for fixed positioning) -->
+    <div id="drafting-modal" class="modal" style="position: fixed; inset: 0; background: rgba(0,0,0,0.8); z-index: 9999; justify-content: center; align-items: center; padding: 2rem;">
+      <div class="modal-content bento-box" style="width: 100%; max-width: 800px; max-height: 90vh; overflow-y: auto; background: var(--bg-surface); border: 1px solid var(--monolith-gold);">
+         <span class="modal-close" id="close-draft" style="float: right; font-size: 1.5rem; cursor: pointer; color: var(--monolith-gold);">&times;</span>
+         <h2 style="color: var(--text-bright); margin-bottom: 1rem;">📄 Generated Draft</h2>
+         <textarea id="draft-result-text" style="width: 100%; height: 60vh; background: #0a0a0a; color: #fff; padding: 1.5rem; border: 1px solid var(--glass-border); border-radius: 10px; font-family: monospace; font-size: 14px;" readonly></textarea>
+         
+         <div style="display: flex; gap: 1rem; margin-top: 1rem;">
+           <button id="copy-draft-btn" class="btn btn-outline" style="flex: 1;">COPY TO CLIPBOARD 📋</button>
+           <button id="download-draft-btn" class="btn btn-primary" style="flex: 1;">DOWNLOAD AS PDF ⬇️</button>
+         </div>
+      </div>
+    </div>
+
     <!-- Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script type="module" src="/demo.js"></script>
     <script type="module" src="/main.js"></script>
   </body>
