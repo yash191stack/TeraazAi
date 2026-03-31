@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/assets/scales.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>⚖ TERAAZ AI | Kanoon Ka Kavach — India's First AI Legal Defender</title>
+    <meta name="description" content="Teraaz AI provides free AI-powered legal help in Hindi for Bharat. Know your rights, get legal notices, and find legal aid instantly." />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Syne:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="/style.css">
+  </head>
+  <body>
+
+    <!-- Visual Density: Floating Mesh Blooms -->
+    <div class="mesh-bloom mesh-bloom-1"></div>
+    <div class="mesh-bloom mesh-bloom-2"></div>
+
+    <!-- Gate Overlay System -->
+    <div id="gate-overlay">
+      <div id="void-mist"></div>
+      <div id="dharma-lock">
+        <svg viewBox="0 0 100 130" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M25 50V35C25 21.1929 36.1929 10 50 10C63.8071 10 75 21.1929 75 35V50" stroke="#D4AF37" stroke-width="12" stroke-linecap="round"/>
+          <rect x="10" y="50" width="80" height="70" rx="15" fill="url(#lockGrad)"/>
+          <circle cx="50" cy="85" r="10" fill="#1A1A2E"/>
+          <rect x="47" y="90" width="6" height="15" fill="#1A1A2E"/>
+          <defs>
+            <linearGradient id="lockGrad" x1="10" y1="50" x2="90" y2="120" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#D4AF37"/>
+              <stop offset="1" stop-color="#E8590C"/>
+            </linearGradient>
+          </defs>
+        </svg>
+      </div>
+      <div class="gate-panel left-gate"><div class="gate-text">धर्म</div></div>
+      <div class="gate-panel right-gate"><div class="gate-text">न्याय</div></div>
+      <div id="scroll-hint">
+        <div class="mouse"><div class="wheel"></div></div>
+        <span>SCROLL TO UNLOCK JUSTICE</span>
+      </div>
+    </div>
+
+    <!-- Preloader -->
+    <div id="preloader">
+      <div class="preloader-chakra">
+        <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="50" cy="50" r="45" stroke="url(#chakraGrad)" stroke-width="1.5" opacity="0.3"/>
+          <circle cx="50" cy="50" r="8" fill="url(#chakraGrad)"/>
+          <g stroke="url(#chakraGrad)" stroke-width="1.5">
+            <line x1="50" y1="5" x2="50" y2="42"/><line x1="50" y1="58" x2="50" y2="95"/>
+            <line x1="5" y1="50" x2="42" y2="50"/><line x1="58" y1="50" x2="95" y2="50"/>
+            <line x1="18.2" y1="18.2" x2="41.5" y2="41.5"/><line x1="58.5" y1="58.5" x2="81.8" y2="81.8"/>
+          </g>
+          <defs>
+            <linearGradient id="chakraGrad" x1="0" y1="0" x2="100" y2="100">
+              <stop offset="0%" stop-color="#FF7A00"/><stop offset="50%" stop-color="#8B00FF"/><stop offset="100%" stop-color="#00E5FF"/>
+            </linearGradient>
+          </defs>
+        </svg>
+      </div>
+      <div class="preloader-text">TERAAZ AI</div>
+      <div class="preloader-sub">Initializing Dharma Engine</div>
+    </div>
+
+    <div id="smooth-wrapper">
+      <div id="smooth-content">
+        <div id="app">
+          <canvas id="devanagari-rain"></canvas>
+          <canvas id="breathing-grid"></canvas>
+          <canvas id="particle-canvas"></canvas>
+
+          <nav id="navbar">
+            <div class="nav-container">
+              <div class="logo-group"><div class="logo shimmer btn-magnetic">⚖ TERAAZ AI</div></div>
+              <div class="nav-links">
+                <a href="/" class="active btn-magnetic">HOME</a>
+                <a href="/features.html" class="btn-magnetic">FEATURES</a>
+                <a href="/how-it-works.html" class="btn-magnetic">YATRA</a>
+                <a href="/demo.html" class="btn-magnetic">NYAY-BOT</a>
+              </div>
+              <div class="nav-cta"><a href="/demo.html" class="btn btn-primary btn-sm btn-magnetic">FREE HELP →</a></div>
+            </div>
+            <div class="nav-progress-bar" id="nav-progress"></div>
+          </nav>
+
+          <main id="main-content">
+            <!-- ========== HERO: Authoritative & Full ========== -->
+            <section class="hero hero-section">
+              <canvas id="hero-3d"></canvas>
+              <div class="hero-float">⚖</div><div class="hero-float">📜</div><div class="hero-float">🛡</div><div class="hero-float">⚖</div><div class="hero-float">📄</div>
+
+              <div class="hero-content" style="max-width: 1000px;">
+                <div class="hero-badge">
+                  <span class="live-dot"></span>
+                  INDIA'S FIRST AI CIVIL RIGHTS DEFENDER
+                </div>
+                <h1>
+                  <span class="line"><span class="word section-title">Kanoon Ka Kavach,</span></span>
+                  <span class="line"><span class="word section-title">Ab Aapki Jeb Mein.</span></span>
+                </h1>
+                <p class="hero-subtitle">
+                   <strong>Nyay</strong> is no longer behind a paywall. <br>
+                   Teraaz AI is India's most advanced legal intelligence platform, providing 50 Crore Indians with free, instant legal help in their own language. 
+                </p>
+
+                <div class="hero-actions">
+                  <a href="/demo.html" class="btn btn-primary btn-large btn-magnetic">Shield Your Rights Now →</a>
+                  <a href="/how-it-works.html" class="btn btn-outline btn-large btn-magnetic">Explore the Dharma Engine ↓</a>
+                </div>
+
+                <div class="hero-stats" style="margin-top: 5rem;">
+                  <div class="hero-stat bento-box" style="padding: 2rem;">
+                    <div class="number" data-count="5.1">0</div><div class="unit">Cr</div>
+                    <div class="label">Cases Pending in Courts</div>
+                  </div>
+                  <div class="hero-stat bento-box" style="padding: 2rem;">
+                    <div class="number" data-count="20">0</div><div class="unit">%</div>
+                    <div class="label">Rural Legal Awareness</div>
+                  </div>
+                  <div class="hero-stat bento-box" style="padding: 2rem;">
+                    <div class="number" data-count="0">0</div><div class="unit">₹</div>
+                    <div class="label">Legal Fee Forever</div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- ========== "KYON TERAAZ?" — Magazine Card Grid Style ========== -->
+            <section class="section problem-section" id="why">
+              <div class="container">
+                <div class="section-label">WHY TERAAZ? · क्यों?</div>
+                <h2 class="section-title">The <span class="gradient-text">Defender</span> of Bharat</h2>
+
+                <div class="mag-grid">
+                  <!-- Card 1: TALL HERO CARD — Rights Defender -->
+                  <div class="mag-card card-navy mag-tall">
+                    <div class="card-orb"></div><div class="card-orb-2"></div>
+                    <div class="card-top">
+                      <span class="card-chip">⚖ Platform</span>
+                      <h3>India's First AI Civil Rights Defender</h3>
+                      <p>Built for 50 Crore Indians who can't afford a lawyer. Teraaz speaks your language and knows your laws.</p>
+                    </div>
+                    <button class="card-btn" onclick="location.href='/demo.html'">Get Help Now →</button>
+                  </div>
+
+                  <!-- Card 2: Square — Free Forever -->
+                  <div class="mag-card card-gold">
+                    <div class="card-top">
+                      <span class="card-chip">✦ Promise</span>
+                      <h3>Free Forever. No Hidden Fees.</h3>
+                    </div>
+                    <div>
+                      <div class="card-stat">₹0</div>
+                      <div class="card-stat-label">Legal help fee</div>
+                    </div>
+                  </div>
+
+                  <!-- Card 3: Square — Speed -->
+                  <div class="mag-card card-sky">
+                    <div class="card-orb"></div>
+                    <div class="card-top">
+                      <span class="card-chip">⚡ Speed</span>
+                      <h3>Justice in 30 Seconds</h3>
+                    </div>
+                    <div>
+                      <div class="card-stat">30s</div>
+                      <div class="card-stat-label">Average response time</div>
+                    </div>
+                  </div>
+
+                  <!-- Card 4: Wide card — What's Included List -->
+                  <div class="mag-card card-rose mag-wide">
+                    <div class="card-orb"></div>
+                    <div class="card-top">
+                      <span class="card-chip">📋 Features</span>
+                      <h3>Everything You Get — Free</h3>
+                    </div>
+                    <ul class="card-list">
+                      <li><span class="list-icon">🎙</span> Hindi Voice AI — Speak your problem</li>
+                      <li><span class="list-icon">📄</span> Auto Legal Notice Generator</li>
+                      <li><span class="list-icon">⚖</span> IPC Section Finder</li>
+                    </ul>
+                    <button class="card-btn" onclick="location.href='/features.html'">See All Features →</button>
+                  </div>
+
+                  <!-- Card 5: Square — Aid Centers -->
+                  <div class="mag-card card-sage">
+                    <div class="card-orb"></div>
+                    <div class="card-top">
+                      <span class="card-chip">🏛 Network</span>
+                      <h3>Legal Aid Centers</h3>
+                    </div>
+                    <div>
+                      <div class="card-stat">1500+</div>
+                      <div class="card-stat-label">Government aid centers linked</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- ========== IMPACT — Magazine Grid Style ========== -->
+            <section class="section impact-section" id="impact">
+              <div class="container">
+                <div class="section-label">LIVE IMPACT · प्रभाव</div>
+                <h2 class="section-title">Justice at <span class="gradient-text">Scale.</span></h2>
+
+                <div class="mag-grid">
+                  <!-- Card 1: TALL — Queries Resolved -->
+                  <div class="mag-card card-violet mag-tall">
+                    <div class="card-orb"></div><div class="card-orb-2"></div>
+                    <div class="card-top">
+                      <span class="card-chip">👥 Served</span>
+                      <h3>Indians Getting Real Help Every Day</h3>
+                      <p>Breaking the silence of the underserved across 28 states. No court. No lawyer. Just answers.</p>
+                    </div>
+                    <div>
+                      <div class="card-stat" data-count="1.2">0</div>
+                      <div class="card-stat-label">Million queries resolved</div>
+                    </div>
+                  </div>
+
+                  <!-- Card 2: Square — Cases -->
+                  <div class="mag-card card-sand">
+                    <div class="card-top">
+                      <span class="card-chip">📊 India</span>
+                      <h3>Pending Court Cases in India</h3>
+                    </div>
+                    <div>
+                      <div class="card-stat">5.1 Cr</div>
+                      <div class="card-stat-label">Cases with no legal representation</div>
+                    </div>
+                  </div>
+
+                  <!-- Card 3: Square — Awareness -->
+                  <div class="mag-card card-navy">
+                    <div class="card-orb"></div>
+                    <div class="card-top">
+                      <span class="card-chip">💡 Awareness</span>
+                      <h3>Rural Legal Awareness in India</h3>
+                    </div>
+                    <div>
+                      <div class="card-stat">20%</div>
+                      <div class="card-stat-label">Know their legal rights</div>
+                    </div>
+                  </div>
+
+                  <!-- Card 4: Wide — Legal Tools -->
+                  <div class="mag-card card-sky mag-wide">
+                    <div class="card-orb"></div>
+                    <div class="card-top">
+                      <span class="card-chip">🛡 Defense Kit</span>
+                      <h3>Your Complete Legal Arsenal</h3>
+                    </div>
+                    <ul class="card-list">
+                      <li><span class="list-icon">🏠</span> Rent & Property Disputes</li>
+                      <li><span class="list-icon">💼</span> Worker & Wage Rights</li>
+                      <li><span class="list-icon">🛍</span> Consumer Protection Complaints</li>
+                    </ul>
+                    <button class="card-btn" onclick="location.href='/demo.html'">Try Nyay-Bot Free →</button>
+                  </div>
+
+                  <!-- Card 5: Square — Stat -->
+                  <div class="mag-card card-rose">
+                    <div class="card-orb"></div>
+                    <div class="card-top">
+                      <span class="card-chip">📄 Docs</span>
+                      <h3>Legal Notices Drafted</h3>
+                    </div>
+                    <div>
+                      <div class="card-stat">50K+</div>
+                      <div class="card-stat-label">Professional notices generated</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- ========== TOOLBOX — Compact Mag Cards ========== -->
+            <section class="section journey-section" id="toolbox">
+              <div class="container">
+                <div class="section-label">LEGAL TOOLBOX · औजार</div>
+                <h2 class="section-title">Your <span class="gradient-text">Complete</span> Defense Kit</h2>
+
+                <div class="mag-grid" style="grid-auto-rows: 180px; grid-template-columns: repeat(3, 1fr);">
+                  <div class="mag-card card-navy">
+                    <div class="card-top">
+                      <span class="card-chip">🎙 AI</span>
+                      <h3>Voice-to-Law</h3>
+                      <p>Speak in Hindi. Get your exact IPC sections in seconds.</p>
+                    </div>
+                  </div>
+                  <div class="mag-card card-gold">
+                    <div class="card-top">
+                      <span class="card-chip">💼 Labor</span>
+                      <h3>Worker Rights</h3>
+                      <p>Wage theft, unfair dismissal & labor law protection.</p>
+                    </div>
+                  </div>
+                  <div class="mag-card card-rose">
+                    <div class="card-top">
+                      <span class="card-chip">🏠 Property</span>
+                      <h3>Rent Disputes</h3>
+                      <p>Generate legally valid notices for landlord conflicts.</p>
+                    </div>
+                  </div>
+                  <div class="mag-card card-sky">
+                    <div class="card-top">
+                      <span class="card-chip">🛍 Consumer</span>
+                      <h3>Consumer Help</h3>
+                      <p>File complaints against fraud brands & bad services.</p>
+                    </div>
+                  </div>
+                  <div class="mag-card card-sage">
+                    <div class="card-top">
+                      <span class="card-chip">🤝 Family</span>
+                      <h3>Family Law</h3>
+                      <p>Property, inheritance & domestic support rights.</p>
+                    </div>
+                  </div>
+                  <div class="mag-card card-violet">
+                    <div class="card-top">
+                      <span class="card-chip">📜 Scanner</span>
+                      <h3>Doc Explainer</h3>
+                      <p>Upload any legal doc — get a plain-Hindi explanation.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- ========== CTA: Premium Finish ========== -->
+            <section class="section cta-section" id="cta">
+              <div class="mesh-bloom mesh-bloom-1" style="opacity: 0.05;"></div>
+              <div class="container text-center">
+                <div class="section-label">THE FINAL STEP</div>
+                <h1 class="section-title">Aapka Haq,<br><span class="gradient-text">Teraaz Ki Shaan.</span></h1>
+                <p class="section-subtitle">Don't wait for a lawyer. Defend yourself today. Free forever.</p>
+                <div style="margin-top: 3rem;">
+                  <a href="/demo.html" class="btn btn-primary btn-large btn-magnetic">Activate Defender →</a>
+                  <a href="/features.html" class="btn btn-outline btn-large btn-magnetic" style="margin-left: 1rem;">View Full Capabilities</a>
+                </div>
+              </div>
+            </section>
+          </main>
+
+          <footer id="footer">
+            <div class="container">
+              <div class="footer-grid">
+                <div class="footer-column brand-col">
+                  <div class="logo">⚖ TERAAZ AI</div>
+                  <p class="tagline">न्याय सबके लिए | Justice for all Indians</p>
+                  <div class="mission">Solving India's legal crisis, one conversation at a time. Free forever.</div>
+                </div>
+                <div class="footer-column">
+                  <h4>CAPABILITIES</h4>
+                  <a href="#">Worker Rights</a><a href="#">Consumer Protection</a><a href="#">Property Law</a>
+                </div>
+                <div class="footer-column">
+                  <h4>PLATFORM</h4>
+                  <a href="/">Home</a><a href="/features.html">Features</a><a href="/demo.html">Nyay-Bot</a>
+                </div>
+                <div class="footer-column">
+                  <h4>CONNECT</h4>
+                  <a href="#">Twitter</a><div class="badge-runtime">Built by Runtime Terror</div>
+                </div>
+              </div>
+              <div class="footer-bottom">
+                <p>© 2024 Teraaz AI · India's First AI Civil Rights Defender · Built for Bharat</p>
+              </div>
+            </div>
+          </footer>
+        </div>
+      </div>
+    </div>
+
+    <div id="data-modal" class="modal">
+      <div class="modal-content bento-box">
+        <button class="modal-close">&times;</button>
+        <div id="modal-body"></div>
+      </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>

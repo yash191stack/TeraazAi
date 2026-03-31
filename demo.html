@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nyay-Bot Demo | TERAAZ AI — Indian Legal Help</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Syne:wght@400;500;600;700;800&family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/style.css">
+  </head>
+  <body class="demo-page">
+    <div id="smooth-wrapper">
+      <div id="smooth-content">
+        <!-- Navbar -->
+        <nav id="navbar" class="scrolled">
+          <div class="nav-container">
+            <div class="logo-group">
+              <div class="logo shimmer btn-magnetic">⚖ TERAAZ AI</div>
+            </div>
+            <div class="nav-links">
+              <a href="/" class="btn-magnetic">HOME</a>
+              <a href="/features.html" class="btn-magnetic">FEATURES</a>
+              <a href="/how-it-works.html" class="btn-magnetic">YATRA</a>
+              <a href="/demo.html" class="btn-magnetic">NYAY-BOT</a>
+            </div>
+            <div class="nav-cta">
+              <a href="/demo.html" class="btn btn-primary btn-sm btn-magnetic">FREE HELP →</a>
+            </div>
+          </div>
+          <div class="nav-progress-bar" id="nav-progress"></div>
+        </nav>
+
+        <main id="demo-main" style="padding-top: 100px;">
+          <div class="demo-split-layout">
+            <!-- Left Panel: Input -->
+            <aside class="demo-input-panel hero-section" style="padding: 4rem; position: relative;">
+              <div class="hero-float float-1" style="opacity: 0.1;"></div>
+              <div class="panel-header">
+                <div class="section-label">AI ASSISTANT</div>
+                <h1 class="section-title" style="font-size: 2.5rem; text-align: left; margin-bottom: 0.5rem; background: none; -webkit-text-fill-color: inherit; color: var(--text-bright); filter: none;">Apni Samasya Batayein</h1>
+                <p style="color: var(--text-mid); margin-bottom: 2rem;">Describe your case to get instant rights analysis.</p>
+              </div>
+
+              <div class="input-group">
+                <textarea id="legal-input" placeholder="Yahan apni samasya likhein... Example: Mera landlord bina wajah nikal raha hai" style="border-radius: 20px; border: 1px solid var(--glass-border); padding: 1.5rem; width: 100%; min-height: 200px; font-family: inherit; font-size: 1.1rem;"></textarea>
+              </div>
+
+              <div class="input-actions" style="margin-top: 2rem; display: flex; flex-direction: column; gap: 1.5rem;">
+                <button id="voice-btn" class="btn btn-outline btn-full btn-magnetic">
+                  <span class="icon">🎙</span> Bolke Batayein (Speak)
+                </button>
+                <div id="submit-btn" class="btn btn-primary btn-full btn-magnetic" style="cursor: pointer; text-align: center;">⚖ APNA HAQ JAANEIN →</div>
+              </div>
+            </aside>
+
+            <!-- Right Panel: Output -->
+            <section class="demo-output-panel impact-section" style="padding: 4rem; min-height: 80vh;">
+              <div id="output-empty" class="output-state">
+                <div class="empty-content text-center">
+                  <div class="section-label" style="opacity: 0.3;">RESULTS</div>
+                  <p style="font-size: 1.5rem; font-weight: 700; color: var(--text-dim); margin-top: 2rem;">Aapka Jawab Yahan Aayega</p>
+                  <span style="color: var(--text-dim); opacity: 0.7;">Your answers will appear here</span>
+                </div>
+              </div>
+
+              <div id="output-loading" class="output-state hidden">
+                <div class="loading-content text-center">
+                  <div class="scan-ring"></div>
+                  <p>Teraaz AI soch raha hai...</p>
+                  <span>Analyzing your legal situation...</span>
+                </div>
+              </div>
+
+              <div id="output-results" class="output-state hidden">
+                <div class="results-container">
+                  <section class="result-box bento-box" style="margin-bottom: 2rem;">
+                    <div class="section-label">SUMMARY</div>
+                    <div id="result-summary" style="margin-top: 1rem; font-size: 1.2rem; line-height: 1.6;"></div>
+                  </section>
+                  <section class="result-box bento-box">
+                    <div class="section-label">IPC SECTIONS</div>
+                    <div id="result-law" class="gradient-text" style="font-weight: 800; font-size: 1.5rem; margin-top: 1rem;"></div>
+                    <p id="result-law-desc" style="color: var(--text-mid); margin-top: 0.5rem;"></p>
+                  </section>
+
+                  <div class="result-actions" style="margin-top: 3rem; display: flex; gap: 1rem;">
+                    <button class="btn btn-primary">📄 DOWNLOAD NOTICE</button>
+                    <button class="btn btn-outline">🗺 FIND AID CENTER</button>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+        </main>
+
+        <!-- Footer -->
+        <footer id="footer">
+          <div class="container">
+            <div class="footer-grid">
+              <div class="footer-column brand-col">
+                <div class="logo">⚖ TERAAZ AI</div>
+                <p class="tagline">न्याय सबके लिए | Justice for all Indians</p>
+                <div class="mission">Solving India's legal crisis, one conversation at a time.</div>
+              </div>
+              <div class="footer-column">
+                <h4>PLATFORM</h4>
+                <a href="/">Home</a>
+                <a href="/features.html">Features</a>
+                <a href="/how-it-works.html">Yatra</a>
+                <a href="/demo.html">Nyay-Bot</a>
+              </div>
+              <div class="footer-column">
+                <h4>CONNECT</h4>
+                <a href="#">Twitter</a>
+                <div class="badge-runtime">Built by Runtime Terror</div>
+              </div>
+            </div>
+            <div class="footer-bottom">
+              <p>© 2024 Teraaz AI · Powered by Dharma Engine · Built for Bharat</p>
+            </div>
+          </div>
+        </footer>
+      </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script type="module" src="/demo.js"></script>
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>
