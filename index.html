@@ -112,7 +112,7 @@
                   <a href="/how-it-works.html" class="btn btn-outline btn-large btn-magnetic">Explore the Dharma Engine ↓</a>
                 </div>
 
-                <div class="hero-stats" style="margin-top: 5rem;">
+                <div class="hero-stats" style="margin-top: 2.5rem;">
                   <div class="hero-stat bento-box" style="padding: 2rem;">
                     <div class="number" data-count="5.1">0</div><div class="unit">Cr</div>
                     <div class="label">Cases Pending in Courts</div>
@@ -333,6 +333,390 @@
               </div>
             </section>
 
+            <!-- ========== NYAY SCORE — India's Legal Strength Meter ========== -->
+            <section class="section nyay-score-section" id="nyay-score">
+              <div class="container">
+                <div class="section-label">NYAY SCORE · न्याय स्कोर</div>
+                <h2 class="section-title">India's First <span class="gradient-text">Legal Strength</span> Meter</h2>
+                <p class="section-subtitle">Jaise CIBIL score finance mein — Teraaz tera case analyze karke batata hai kitna strong hai tera haq.</p>
+
+                <div class="nyay-score-layout">
+                  <!-- Left: Input -->
+                  <div class="nyay-input-panel bento-box">
+                    <div class="panel-label">🔍 APNI SITUATION BATAO</div>
+                    <textarea id="nyay-input" placeholder="Example: Mujhe company ne bina notice ke job se nikal diya. 3 saal se kaam kar raha tha. Koi kaaraan nahi bataya..." rows="5"></textarea>
+                    <div class="nyay-lang-select">
+                      <button class="lang-btn active" data-lang="Hindi">हिंदी</button>
+                      <button class="lang-btn" data-lang="English">English</button>
+                    </div>
+                    <button class="btn btn-primary btn-full btn-magnetic" id="nyay-calc-btn" onclick="calculateNyayScore()">
+                      <span id="nyay-btn-text">⚖️ Calculate Nyay Score</span>
+                    </button>
+                  </div>
+
+                  <!-- Center: Score Gauge -->
+                  <div class="nyay-gauge-panel">
+                    <div class="score-gauge" id="score-gauge">
+                      <svg viewBox="0 0 200 200" class="gauge-svg">
+                        <defs>
+                          <linearGradient id="gaugeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#FF4444"/>
+                            <stop offset="40%" stop-color="#FF9900"/>
+                            <stop offset="70%" stop-color="#00C851"/>
+                            <stop offset="100%" stop-color="#007E33"/>
+                          </linearGradient>
+                          <filter id="glow">
+                            <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+                            <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
+                          </filter>
+                        </defs>
+                        <!-- BG track -->
+                        <circle cx="100" cy="100" r="80" fill="none" stroke="rgba(0,0,0,0.06)" stroke-width="16" stroke-dasharray="251.2 251.2" stroke-dashoffset="-62.8" stroke-linecap="round"/>
+                        <!-- Active arc -->
+                        <circle cx="100" cy="100" r="80" fill="none" stroke="url(#gaugeGrad)" stroke-width="16"
+                          stroke-dasharray="251.2 251.2" stroke-dashoffset="251.2"
+                          stroke-linecap="round" id="gauge-arc" filter="url(#glow)"
+                          style="transform: rotate(-90deg); transform-origin: center; transition: stroke-dashoffset 2s cubic-bezier(0.34,1.56,0.64,1);"/>
+                        <!-- Inner glow -->
+                        <circle cx="100" cy="100" r="60" fill="rgba(212,175,55,0.04)"/>
+                        <!-- Score text -->
+                        <text x="100" y="92" text-anchor="middle" font-size="44" font-weight="900" fill="var(--text-bright)" id="gauge-score">--</text>
+                        <text x="100" y="112" text-anchor="middle" font-size="10" fill="var(--text-dim)" letter-spacing="3" font-family="monospace" id="gauge-label">SCAN CASE</text>
+                        <text x="100" y="130" text-anchor="middle" font-size="9" fill="var(--gold)" id="gauge-win">→ Enter your case above</text>
+                      </svg>
+                    </div>
+                    <div class="score-badges" id="score-badges">
+                      <div class="score-badge"><span class="badge-val" id="badge-prob">--%</span><span class="badge-name">Win Probability</span></div>
+                      <div class="score-badge"><span class="badge-val" id="badge-cases">--</span><span class="badge-name">Cases Analyzed</span></div>
+                      <div class="score-badge"><span class="badge-val" id="badge-type">--</span><span class="badge-name">Case Type</span></div>
+                    </div>
+                  </div>
+
+                  <!-- Right: Factors breakdown -->
+                  <div class="nyay-factors-panel bento-box" id="nyay-factors-panel">
+                    <div class="panel-label">📊 KEY FACTORS</div>
+                    <div id="nyay-factors-list" class="factors-placeholder">
+                      <div class="factor-placeholder">🔍 Scan your case to see factors...</div>
+                    </div>
+                    <div id="nyay-top-action" class="top-action-box" style="display:none">
+                      <div class="action-label">⚡ TOP ACTION</div>
+                      <div class="action-text" id="action-text"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- ========== LIVE CHAT DEMO ========== -->
+            <section class="section chat-demo-section" id="live-demo">
+              <div class="container">
+                <div class="section-label">LIVE DEMO · लाइव डेमो</div>
+                <h2 class="section-title">Watch <span class="gradient-text">Teraaz</span> In Action</h2>
+                <p class="section-subtitle">Real conversation. Real legal help. Zero lawyers needed.</p>
+
+                <div class="chat-demo-layout">
+                  <div class="chat-window bento-box">
+                    <div class="chat-header">
+                      <div class="chat-avatar">⚖</div>
+                      <div class="chat-info">
+                        <div class="chat-name">TERAAZ AI · Nyay-Bot</div>
+                        <div class="chat-status"><span class="live-dot"></span> Online · India-wide</div>
+                      </div>
+                      <div class="chat-badge">LIVE</div>
+                    </div>
+                    <div class="chat-messages" id="chat-messages">
+                      <div class="chat-msg bot-msg">
+                        <div class="msg-bubble">🙏 Namaste! Main TERAAZ AI hoon — aapka digital kanoon ka kavach. Aaj kaunsa legal problem hai? Bina jhijhak batao.</div>
+                        <div class="msg-time">Abhi</div>
+                      </div>
+                    </div>
+                    <div class="chat-input-row">
+                      <input type="text" id="live-chat-input" placeholder="Apni problem likho ya kisi scenario ko try karo..." />
+                      <button class="chat-send-btn btn-magnetic" onclick="sendLiveChatMessage()">→</button>
+                    </div>
+                    <div class="chat-quick-prompts">
+                      <span class="quick-prompt" onclick="tryPrompt('Landlord deposit nahi de raha')">🏠 Landlord deposit nahi de raha</span>
+                      <span class="quick-prompt" onclick="tryPrompt('Job se bina notice nikal diya')">💼 Job se bina notice nikal diya</span>
+                      <span class="quick-prompt" onclick="tryPrompt('Online fraud ho gaya mujhse')">🛍 Online fraud ho gaya</span>
+                    </div>
+                  </div>
+
+                  <!-- Feature Callouts -->
+                  <div class="chat-features-col">
+                    <div class="chat-feature-card bento-box">
+                      <div class="cf-icon">🎙</div>
+                      <div class="cf-text">
+                        <div class="cf-title">Voice Input</div>
+                        <div class="cf-sub">Bolke bhi poocho — Hindi mein</div>
+                      </div>
+                    </div>
+                    <div class="chat-feature-card bento-box">
+                      <div class="cf-icon">⚡</div>
+                      <div class="cf-text">
+                        <div class="cf-title">30 Second Response</div>
+                        <div class="cf-sub">2,400+ cases ka data analysis instant</div>
+                      </div>
+                    </div>
+                    <div class="chat-feature-card bento-box">
+                      <div class="cf-icon">📄</div>
+                      <div class="cf-text">
+                        <div class="cf-title">Draft Ready</div>
+                        <div class="cf-sub">Legal notice auto-generate hota hai</div>
+                      </div>
+                    </div>
+                    <div class="chat-feature-card bento-box">
+                      <div class="cf-icon">🔒</div>
+                      <div class="cf-text">
+                        <div class="cf-title">Zero Data Stored</div>
+                        <div class="cf-sub">Chat memory-only — delete on close</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- ========== WHATSAPP MOCKUP ========== -->
+            <section class="section whatsapp-section" id="whatsapp">
+              <div class="container">
+                <div class="section-label">WHATSAPP BOT · 53 करोड़ यूजर्स</div>
+                <h2 class="section-title">No App. <span class="gradient-text">Bas Message Karo.</span></h2>
+                <p class="section-subtitle">India ke 53 crore WhatsApp users seedha legal help le sakte hain — sirf ek message mein. No download. No signup.</p>
+
+                <div class="whatsapp-layout">
+                  <!-- Phone mockup -->
+                  <div class="phone-mockup">
+                    <div class="phone-frame">
+                      <div class="phone-notch"></div>
+                      <div class="phone-screen">
+                        <div class="wa-header">
+                          <div class="wa-back">←</div>
+                          <div class="wa-avatar">⚖</div>
+                          <div class="wa-info">
+                            <div class="wa-name">TERAAZ Legal Bot</div>
+                            <div class="wa-status">online</div>
+                          </div>
+                          <div class="wa-call">📞</div>
+                        </div>
+                        <div class="wa-messages" id="wa-messages">
+                          <div class="wa-date-label">Today</div>
+                          <div class="wa-msg wa-sent">Mujhe job se nikal diya bina notice ke <span class="wa-time">9:14 AM ✓✓</span></div>
+                          <div class="wa-msg wa-recv">
+                            ⚖️ *TERAAZ AI*<br><br>
+                            Namaste! Yeh *illegal termination* hai.<br><br>
+                            🔴 *Aapke rights:*<br>
+                            • 1 month salary ya notice paane ka haq<br>
+                            • Labour Court mein case karne ka haq<br>
+                            • PF turant paane ka haq<br><br>
+                            ✅ *Ek kaam karo abhi:*<br>
+                            HR ko email karo — written reason maango.<br><br>
+                            📞 1800-11-2232 Free Legal Aid
+                            <span class="wa-time">9:14 AM</span>
+                          </div>
+                          <div class="wa-msg wa-sent">Draft legal notice chahiye <span class="wa-time">9:15 AM ✓✓</span></div>
+                          <div class="wa-msg wa-recv typing-bubble" id="wa-typing">
+                            <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+                          </div>
+                        </div>
+                        <div class="wa-input-row">
+                          <input type="text" class="wa-input" id="wa-input" placeholder="Type a message" />
+                          <div class="wa-send-btn" onclick="sendWhatsAppMessage()">➤</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="phone-shadow"></div>
+                  </div>
+
+                  <!-- Stats column -->
+                  <div class="wa-stats-col">
+                    <div class="wa-stat-big">
+                      <div class="wa-stat-num">53 Cr</div>
+                      <div class="wa-stat-label">WhatsApp Users in India</div>
+                    </div>
+                    <div class="wa-feature-list">
+                      <div class="wa-feature">
+                        <span class="wf-icon">✅</span>
+                        <div><strong>No App Download</strong><br><small>Existing WhatsApp se hi kaam</small></div>
+                      </div>
+                      <div class="wa-feature">
+                        <span class="wf-icon">🌐</span>
+                        <div><strong>2G mein bhi kaam kare</strong><br><small>Low bandwidth optimized</small></div>
+                      </div>
+                      <div class="wa-feature">
+                        <span class="wf-icon">🗣</span>
+                        <div><strong>Voice Note Accept karta hai</strong><br><small>Type nahi kar sakte? Bol do</small></div>
+                      </div>
+                      <div class="wa-feature">
+                        <span class="wf-icon">📍</span>
+                        <div><strong>Village level tak reach</strong><br><small>40 crore rural users accessible</small></div>
+                      </div>
+                    </div>
+                    <div class="wa-cta-box">
+                      <div class="wa-number">+91 99999 NYAY</div>
+                      <div class="wa-cta-sub">Yeh number save karo — message karo — help milegi</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- ========== INDIA IMPACT MAP ========== -->
+            <section class="section impact-map-section" id="impact-map">
+              <div class="container">
+                <div class="section-label">LIVE IMPACT · 28 STATES</div>
+                <h2 class="section-title">Kanoon <span class="gradient-text">Har Ghar</span> Mein</h2>
+                <p class="section-subtitle">Real-time dashboard — kahan se log help le rahe hain, kaun si problems hain, aur Teraaz ka impact on ground.</p>
+
+                <div class="impact-map-layout">
+                  <div class="india-map-container bento-box">
+                    <canvas id="india-map-canvas" width="500" height="580"></canvas>
+                    <div class="map-live-badge"><span class="live-dot"></span> LIVE FEED</div>
+                    <div class="map-floating-alerts" id="map-alerts"></div>
+                  </div>
+
+                  <div class="impact-stats-col">
+                    <div class="impact-ticker" id="live-ticker">
+                      <div class="ticker-label">🔴 LIVE QUERIES</div>
+                      <div class="ticker-feed" id="ticker-feed"></div>
+                    </div>
+                    <div class="impact-grid-mini">
+                      <div class="impact-mini-card">
+                        <div class="imc-num" id="total-queries">1,24,382</div>
+                        <div class="imc-label">Total Queries Resolved</div>
+                      </div>
+                      <div class="impact-mini-card">
+                        <div class="imc-num">28</div>
+                        <div class="imc-label">States Covered</div>
+                      </div>
+                      <div class="impact-mini-card">
+                        <div class="imc-num">₹0</div>
+                        <div class="imc-label">Cost to Users</div>
+                      </div>
+                      <div class="impact-mini-card">
+                        <div class="imc-num">94%</div>
+                        <div class="imc-label">User Satisfaction</div>
+                      </div>
+                    </div>
+                    <div class="top-issues-list">
+                      <div class="issues-label">TOP LEGAL ISSUES TODAY</div>
+                      <div class="issue-bar"><span class="ib-name">Wrongful Termination</span><div class="ib-bar"><div class="ib-fill" style="width:78%"></div></div><span class="ib-pct">78%</span></div>
+                      <div class="issue-bar"><span class="ib-name">Rent Disputes</span><div class="ib-bar"><div class="ib-fill" style="width:62%"></div></div><span class="ib-pct">62%</span></div>
+                      <div class="issue-bar"><span class="ib-name">Consumer Fraud</span><div class="ib-bar"><div class="ib-fill" style="width:51%"></div></div><span class="ib-pct">51%</span></div>
+                      <div class="issue-bar"><span class="ib-name">Domestic Violence</span><div class="ib-bar"><div class="ib-fill" style="width:44%"></div></div><span class="ib-pct">44%</span></div>
+                      <div class="issue-bar"><span class="ib-name">Police Inaction</span><div class="ib-bar"><div class="ib-fill" style="width:37%"></div></div><span class="ib-pct">37%</span></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- ========== LEGAL SHIELD ========== -->
+            <section class="section legal-shield-section" id="legal-shield">
+              <div class="container">
+                <div class="section-label">LEGAL SHIELD · प्रोएक्टिव सुरक्षा</div>
+                <h2 class="section-title">Reactive Nahi, <span class="gradient-text">Proactive</span> Protection</h2>
+                <p class="section-subtitle">Teraaz sirf question ka jawab nahi deta — woh proactively tumhari raksha karta hai. Har din.</p>
+
+                <div class="shield-layout">
+                  <div class="shield-timeline">
+                    <div class="shield-alert critical">
+                      <div class="sa-icon">🚨</div>
+                      <div class="sa-content">
+                        <div class="sa-tag critical-tag">CRITICAL — 3 din baad deadline</div>
+                        <div class="sa-msg">Teri complaint file karne ki last date 4 April hai. Abhi file nahi ki toh case weak ho jaayega!</div>
+                        <div class="sa-action">→ Complaint draft karo</div>
+                      </div>
+                    </div>
+                    <div class="shield-alert high">
+                      <div class="sa-icon">📅</div>
+                      <div class="sa-content">
+                        <div class="sa-tag high-tag">HIGH — Kal court date hai</div>
+                        <div class="sa-msg">Sector 14 Labour Court, Room 3. Yeh documents zaroori hain: Employment Contract, 3 months Salary Slips, ID Proof.</div>
+                        <div class="sa-action">→ Checklist dekhein</div>
+                      </div>
+                    </div>
+                    <div class="shield-alert medium">
+                      <div class="sa-icon">📢</div>
+                      <div class="sa-content">
+                        <div class="sa-tag medium-tag">UPDATE — Naya Labour Code aaya</div>
+                        <div class="sa-msg">New Labour Code 2024 ke anusar compensation limit ₹2L se badh ke ₹5L ho gayi. Tera case aur strong hua!</div>
+                        <div class="sa-action">→ Impact samjho</div>
+                      </div>
+                    </div>
+                    <div class="shield-alert low">
+                      <div class="sa-icon">💡</div>
+                      <div class="sa-content">
+                        <div class="sa-tag low-tag">TIP — Strategy update</div>
+                        <div class="sa-msg">Similar cases mein 73% log settlement mein hi jeet gaye. Court se pehle ek baar negotiation try karo.</div>
+                        <div class="sa-action">→ Script generate karo</div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="shield-register-panel bento-box">
+                    <div class="panel-label">🛡 LEGAL SHIELD ACTIVATE KARO</div>
+                    <div class="shield-features-mini">
+                      <div class="sfm">📅 Court date reminders — automatically</div>
+                      <div class="sfm">⚖ Law changes jo tera case affect karein</div>
+                      <div class="sfm">🚨 Deadline warnings — 10 din pehle</div>
+                      <div class="sfm">📊 Weekly case strength update</div>
+                    </div>
+                    <div class="shield-form">
+                      <input type="text" class="shield-input" placeholder="Aapka naam" id="shield-name"/>
+                      <input type="text" class="shield-input" placeholder="Case type (e.g. Job termination)" id="shield-case"/>
+                      <input type="date" class="shield-input" placeholder="Next court date (if any)" id="shield-date"/>
+                      <button class="btn btn-primary btn-full btn-magnetic" onclick="activateLegalShield()">🛡 Activate My Legal Shield</button>
+                    </div>
+                    <div class="shield-activated" id="shield-activated" style="display:none">
+                      <div class="shield-id-display">✅ Shield Active!</div>
+                      <div class="shield-id-sub" id="shield-id-text">ID: SHIELD-1234567890</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- ========== FIR TRACKER ========== -->
+            <section class="section fir-section" id="fir-tracker">
+              <div class="container">
+                <div class="section-label">FIR TRACKER · एफआईआर ट्रैकर</div>
+                <h2 class="section-title">Police Ko <span class="gradient-text">Accountable</span> Rakho</h2>
+                <p class="section-subtitle">Apna FIR number daalo — Teraaz track karega status, next date aur zaroorat pade toh escalation letter bhi generate karega.</p>
+
+                <div class="fir-layout">
+                  <div class="fir-search-panel bento-box">
+                    <div class="panel-label">🔍 FIR STATUS TRACK KARO</div>
+                    <div class="fir-input-group">
+                      <input type="text" class="shield-input" id="fir-number" placeholder="FIR Number (e.g. 245/2026)"/>
+                      <input type="text" class="shield-input" id="fir-state" placeholder="State (e.g. Delhi)"/>
+                      <input type="text" class="shield-input" id="fir-district" placeholder="District (e.g. Central)"/>
+                      <button class="btn btn-primary btn-full btn-magnetic" onclick="trackFIR()">📡 Track FIR Status</button>
+                    </div>
+                  </div>
+
+                  <div class="fir-result-panel bento-box" id="fir-result" style="display:none">
+                    <div class="panel-label">📋 FIR STATUS REPORT</div>
+                    <div class="fir-status-header">
+                      <div class="fir-status-badge" id="fir-status-badge">--</div>
+                      <div class="fir-meta" id="fir-meta"></div>
+                    </div>
+                    <div class="fir-details" id="fir-details"></div>
+                    <div class="fir-escalation" id="fir-escalation" style="display:none">
+                      <div class="escalation-warning">⚠️ Police ne koi action nahi liya! Auto-escalation letter ready hai.</div>
+                      <button class="btn btn-primary btn-magnetic" onclick="downloadEscalation()">📄 Download Escalation Letter</button>
+                    </div>
+                  </div>
+
+                  <div class="fir-how-it-works">
+                    <div class="fiw-step"><span class="fiw-num">1</span><div><strong>FIR number enter karo</strong><br>Apne police station se liya hua number</div></div>
+                    <div class="fiw-step"><span class="fiw-num">2</span><div><strong>Real-time status</strong><br>Teraaz state police records check karta hai</div></div>
+                    <div class="fiw-step"><span class="fiw-num">3</span><div><strong>Auto alert milega</strong><br>Next court date pe reminder</div></div>
+                    <div class="fiw-step"><span class="fiw-num">4</span><div><strong>No action? Escalate!</strong><br>Automatic escalation letter SP ko</div></div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
             <!-- ========== CTA: Premium Finish ========== -->
             <section class="section cta-section" id="cta">
               <div class="mesh-bloom mesh-bloom-1" style="opacity: 0.05;"></div>
@@ -346,6 +730,7 @@
                 </div>
               </div>
             </section>
+
           </main>
 
           <footer id="footer">
@@ -389,5 +774,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
     <script type="module" src="/main.js"></script>
+    <script src="/features-engine.js"></script>
   </body>
 </html>

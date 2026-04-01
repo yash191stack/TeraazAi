@@ -42,6 +42,13 @@ import bailRoute from './routes/bail.js';
 import mahilaRoute from './routes/mahila.js';
 import yojanaRoute from './routes/yojana.js';
 
+// 🔥 New Power Features
+import nyayScoreRoute from './routes/nyayscore.js';
+import firTrackerRoute from './routes/firtracker.js';
+import dialectRoute from './routes/dialect.js';
+import whatsappRoute from './routes/whatsapp.js';
+import legalShieldRoute from './routes/legalshield.js';
+
 // Base Route
 app.get('/', (req, res) => {
   res.json({ message: "TERAAZ AI Privacy-First API Runtime Active. Zero logs maintained." });
@@ -68,6 +75,13 @@ app.use('/api/traffic', trafficRoute);
 app.use('/api/bail', bailRoute);
 app.use('/api/mahila', mahilaRoute);
 app.use('/api/yojana', yojanaRoute);
+
+// Mount 🔥 New Power Features
+app.use('/api/nyay-score', nyayScoreRoute);
+app.use('/api/fir-tracker', firTrackerRoute);
+app.use('/api/dialect', dialectRoute);
+app.use('/api/whatsapp', whatsappRoute);
+app.use('/api/legal-shield', legalShieldRoute);
 
 // Global Error Handler
 app.use((err, req, res, next) => {

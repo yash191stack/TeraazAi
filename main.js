@@ -19,6 +19,9 @@ window.addEventListener('load', () => {
       initJourneyScroll();
     }, 1500);
   } else {
+    // No preloader — show navbar and chakra immediately
+    gsap.to("#navbar", { opacity: 1, y: 0, duration: 0.6, delay: 0.3, ease: "power3.out" });
+    gsap.to("#hero-3d", { opacity: 1, duration: 0.8, delay: 0.5, ease: "power2.out" });
     initTehelkaInteractions();
     initNavbar();
     initCounters();
@@ -60,7 +63,10 @@ function initMonolithPortal() {
   masterTl.set("#app", { opacity: 1, scale: 1 }, 0.25);
   masterTl.to(burst, { opacity: 0, duration: 0.4, ease: "power2.out" }, 0.26);
 
-  masterTl.to("#navbar", { opacity: 1, y: 0, duration: 0.4 }, 0.3);
+  // Immediately animate navbar into view after gate bursts
+  masterTl.to("#navbar", { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" }, 0.28);
+  // Fade in the 3D chakra canvas (not during gate)
+  masterTl.to("#hero-3d", { opacity: 1, duration: 0.6, ease: "power2.out" }, 0.35);
   masterTl.to("#void-mist", { opacity: 0, duration: 0.8 }, 0.4);
 }
 
