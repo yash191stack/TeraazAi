@@ -154,6 +154,83 @@ export const queryGemini = async (systemInstruction, userPrompt) => {
                 ]
             });
         }
+        
+        // --- NEW 5 FEATURES MOCKS ---
+        
+        if (systemInstruction.includes("premier Agricultural Legal Advisor")) {
+            if (isHindi) {
+                return JSON.stringify({
+                    category: "Fasal Bima (Crop Insurance)",
+                    analysis: "कृषि कानूनों के तहत, अगर प्राकृतिक आपदा या बेमौसम बारिश से आपकी फसल बर्बाद हुई है और आपने प्रधानमंत्री फसल बीमा योजना (PMFBY) ली है, तो आपको 72 घंटे के अंदर बैंक या कृषि अधिकारी को सूचित करना होगा।",
+                    laws: ["प्रधानमंत्री फसल बीमा योजना (PMFBY) Guidelines"],
+                    action_plan: ["72 घंटे के अंदर टोल-फ्री नंबर पर शिकायत दर्ज करें।", "अपनी बर्बाद फसल की फोटो और खसरा/खतौनी के कागज़ तैयार रखें।", "अगर बैंक क्लेम रिजेक्ट करे, तो जिला कृषि अधिकारी से मिलें।"]
+                });
+            } else {
+                return JSON.stringify({
+                    category: "Fasal Bima (Crop Insurance)",
+                    analysis: "Under agricultural laws, if your crop was damaged due to unseasonal rain and you are enrolled in PMFBY, you must intimate the insurance company/bank within 72 hours of the damage.",
+                    laws: ["Pradhan Mantri Fasal Bima Yojana (PMFBY) Guidelines"],
+                    action_plan: ["Lodge a formal complaint via the toll-free number within 72 hours.", "Keep photos of crop damage and your Khasra/Khatauni documents ready.", "If the bank rejects the claim, approach the District Agriculture Officer."]
+                });
+            }
+        }
+        
+        if (systemInstruction.includes("premier Traffic Dispute Analyzer")) {
+             return JSON.stringify({
+                 violation_type: "Over-speeding / Signal Jump",
+                 validity_check: "The e-challan appears legally valid based on standard RTO protocols. However, technical glitches with ANPR cameras can sometimes wrongly identify number plates.",
+                 laws: ["Motor Vehicles Act, 1988 - Section 183/184", "IT Act, 2000 - Camera Evidence"],
+                 negotiation_angle: "You can contest this in the upcoming E-Lok Adalat. Often, if this is a first-time offense without accident history, magistrates may reduce the fine by 50%.",
+                 steps: ["Do not pay online if you wish to contest.", "Wait for the physical notice or E-Lok Adalat notification.", "Appear in Lok Adalat and politely explain if the camera reading was an error."]
+             });
+        }
+        
+        if (systemInstruction.includes("premier Bail Eligibility Calculator")) {
+             return JSON.stringify({
+                 offense_classification: "Bailable Offense",
+                 severity: "Low to Moderate",
+                 bail_eligibility: "Yes, you are legally entitled to bail as a matter of right under Section 436 CrPC / Section 478 BNSS.",
+                 documents_needed: ["Original ID Proof (Aadhaar/Voter ID)", "Address Proof", "Surety Details (if asked)", "Passport size photographs"],
+                 explanation: "Since this is a compoundable/bailable dispute (e.g., minor scuffle or petty theft), you do not need a High Court order. You can secure bail directly from the Police Station Officer-in-charge or the local Magistrate by signing a bail bond."
+             });
+        }
+        
+        if (systemInstruction.includes("premier Women's Rights Defender")) {
+             if (isHindi) {
+                 return JSON.stringify({
+                     rights_violated: ["Domestic Violence", "Emotional & Financial Harassment"],
+                     laws: ["Protection of Women from Domestic Violence Act, 2005", "BNS Section 85 (Cruelty by Husband/Relatives)"],
+                     immediate_action: "अगर आप खतरे में हैं, तो तुरंत 1091 (Women Helpline) या 112 डायल करें। आप बिना पुलिस स्टेशन जाए अपनी शिकायत 'Protection Officer' को भी दर्ज़ करा सकती हैं।",
+                     sos_message_draft: "URGENT SOS: I am facing acute domestic violence and fear for my physical safety at my marital home. I need immediate police intervention. Address: [YOUR ADDRESS]."
+                 });
+             } else {
+                 return JSON.stringify({
+                     rights_violated: ["Domestic Violence", "Emotional & Financial Harassment"],
+                     laws: ["Protection of Women from Domestic Violence Act, 2005", "BNS Section 85 (Cruelty by Husband/Relatives)"],
+                     immediate_action: "If you are in imminent danger, dial 1091 (Women Helpline) or 112 immediately. You can file a Domestic Incident Report without going to a police station via a 'Protection Officer'.",
+                     sos_message_draft: "URGENT SOS: I am facing acute domestic violence and fear for my physical safety at my marital home. I need immediate police intervention. Address: [YOUR ADDRESS]."
+                 });
+             }
+        }
+        
+        if (systemInstruction.includes("premier Government Scheme Matchmaker")) {
+             return JSON.stringify({
+                 eligible: true,
+                 matching_schemes: [
+                     {
+                         name: "Ayushman Bharat PM-JAY",
+                         description: "Offers health cover of Rs. 5 Lakhs per family per year for secondary and tertiary care hospitalization.",
+                         how_to_apply: "Visit the nearest Common Service Centre (CSC) with your Ration Card and Aadhaar."
+                     },
+                     {
+                         name: "Pradhan Mantri Awas Yojana (PMAY-G)",
+                         description: "Financial assistance for the construction of pucca houses for poor families in rural/urban areas.",
+                         how_to_apply: "Apply online at pmaymis.gov.in or contact your local Gram Panchayat/Ward office."
+                     }
+                 ],
+                 warning: "Eligibility is strongly dependent on your name appearing in the SECC 2011 database or having an Antyodaya Anna Yojana (AAY) ration card."
+             });
+        }
 
         return JSON.stringify({ error: true, message: "No mock available, and live API failed." });
     }

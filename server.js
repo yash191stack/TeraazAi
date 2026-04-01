@@ -35,6 +35,13 @@ import costRoute from './routes/cost.js';
 import negotiationRoute from './routes/negotiation.js';
 import pilRoute from './routes/pil.js';
 
+// The Next-Gen 5 Routes
+import kisanRoute from './routes/kisan.js';
+import trafficRoute from './routes/traffic.js';
+import bailRoute from './routes/bail.js';
+import mahilaRoute from './routes/mahila.js';
+import yojanaRoute from './routes/yojana.js';
+
 // Base Route
 app.get('/', (req, res) => {
   res.json({ message: "TERAAZ AI Privacy-First API Runtime Active. Zero logs maintained." });
@@ -54,6 +61,13 @@ app.use('/api/evidence', evidenceRoute);
 app.use('/api/cost', costRoute);
 app.use('/api/negotiation', negotiationRoute);
 app.use('/api/pil', pilRoute);
+
+// Mount Next-Gen 5 Routes
+app.use('/api/kisan', kisanRoute);
+app.use('/api/traffic', trafficRoute);
+app.use('/api/bail', bailRoute);
+app.use('/api/mahila', mahilaRoute);
+app.use('/api/yojana', yojanaRoute);
 
 // Global Error Handler
 app.use((err, req, res, next) => {

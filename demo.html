@@ -55,6 +55,13 @@
                 <button class="tab-btn" data-target="tab-cost">💰 Cost Estimator</button>
                 <button class="tab-btn" data-target="tab-negotiation">🗣️ Negotiation Bot</button>
                 <button class="tab-btn" data-target="tab-pil">🏛️ PIL Ideator</button>
+
+                <!-- Next-Gen Tools -->
+                <button class="tab-btn" data-target="tab-kisan">👨‍🌾 Kisan Tracker</button>
+                <button class="tab-btn" data-target="tab-traffic">🚦 Traffic Analyzer</button>
+                <button class="tab-btn" data-target="tab-bail">⚖️ Bail Calculator</button>
+                <button class="tab-btn" data-target="tab-mahila">🚺 Mahila Kavach</button>
+                <button class="tab-btn" data-target="tab-yojana">💸 Yojana Tracker</button>
               </div>
 
               <div id="tab-rights" class="tab-content active" style="display: block;">
@@ -172,6 +179,61 @@
                 </div>
                 <div class="input-actions" style="margin-top: 2rem;">
                   <div id="submit-pil-btn" class="btn btn-primary btn-full btn-magnetic" style="cursor: pointer; text-align: center;">🏛️ EVALUATE PIL →</div>
+                </div>
+              </div>
+
+              <!-- 9. Kisan Tracker -->
+              <div id="tab-kisan" class="tab-content" style="display: none;">
+                <div class="input-group">
+                  <label style="color: var(--text-mid);">Describe your agricultural, crop insurance, or land issue:</label>
+                  <textarea id="kisan-details" placeholder="Unseasonal rains ruined my wheat crop but the bank rejected my Fasal Bima claim..." style="border-radius: 15px; border: 1px solid var(--glass-border); padding: 1.5rem; width: 100%; min-height: 200px; font-family: inherit; font-size: 1.1rem; margin-top: 1rem;"></textarea>
+                </div>
+                <div class="input-actions" style="margin-top: 2rem;">
+                  <div id="submit-kisan-btn" class="btn btn-primary btn-full btn-magnetic" style="cursor: pointer; text-align: center;">👨‍🌾 GET FARM LEGISLATION HELP →</div>
+                </div>
+              </div>
+
+              <!-- 10. Traffic Analyzer -->
+              <div id="tab-traffic" class="tab-content" style="display: none;">
+                <div class="input-group">
+                  <label style="color: var(--text-mid);">Describe your E-Challan or Traffic Dispute:</label>
+                  <textarea id="traffic-details" placeholder="I received an e-challan for a red light jump in Delhi but someone else was driving my car..." style="border-radius: 15px; border: 1px solid var(--glass-border); padding: 1.5rem; width: 100%; min-height: 200px; font-family: inherit; font-size: 1.1rem; margin-top: 1rem;"></textarea>
+                </div>
+                <div class="input-actions" style="margin-top: 2rem;">
+                  <div id="submit-traffic-btn" class="btn btn-primary btn-full btn-magnetic" style="cursor: pointer; text-align: center;">🚦 ANALYZE E-CHALLAN CHALLENGE →</div>
+                </div>
+              </div>
+
+              <!-- 11. Bail Calculator -->
+              <div id="tab-bail" class="tab-content" style="display: none;">
+                <div class="input-group">
+                  <label style="color: var(--text-mid);">Describe the incident and police charges (if known):</label>
+                  <textarea id="bail-details" placeholder="My brother was arrested last night after a minor argument with a neighbor. The police noted Section 115 BNS..." style="border-radius: 15px; border: 1px solid var(--glass-border); padding: 1.5rem; width: 100%; min-height: 200px; font-family: inherit; font-size: 1.1rem; margin-top: 1rem;"></textarea>
+                </div>
+                <div class="input-actions" style="margin-top: 2rem;">
+                  <div id="submit-bail-btn" class="btn btn-primary btn-full btn-magnetic" style="cursor: pointer; text-align: center;">⚖️ CHECK ZAMANAT (BAIL) CHANCES →</div>
+                </div>
+              </div>
+
+              <!-- 12. Mahila Kavach -->
+              <div id="tab-mahila" class="tab-content" style="display: none;">
+                <div class="input-group">
+                  <label style="color: var(--text-mid);">Describe the situation (Domestic violence, harassment, etc):</label>
+                  <textarea id="mahila-details" placeholder="My husband's family is constantly demanding more money from my parents and emotionally abusing me..." style="border-radius: 15px; border: 1px solid var(--glass-border); padding: 1.5rem; width: 100%; min-height: 200px; font-family: inherit; font-size: 1.1rem; margin-top: 1rem;"></textarea>
+                </div>
+                <div class="input-actions" style="margin-top: 2rem;">
+                  <div id="submit-mahila-btn" class="btn btn-primary btn-full btn-magnetic" style="cursor: pointer; text-align: center; background: #ff4444; border-color: #ff4444;">🚺 ACTIVATE MAHILA KAVACH (SOS) →</div>
+                </div>
+              </div>
+
+              <!-- 13. Scheme Tracker -->
+              <div id="tab-yojana" class="tab-content" style="display: none;">
+                <div class="input-group">
+                  <label style="color: var(--text-mid);">Provide demographic info (Income, Occupation, Category, City):</label>
+                  <textarea id="yojana-details" placeholder="I am a daily wage laborer from Bihar earning Rs 10000 a month with 3 children. Belong to OBC." style="border-radius: 15px; border: 1px solid var(--glass-border); padding: 1.5rem; width: 100%; min-height: 200px; font-family: inherit; font-size: 1.1rem; margin-top: 1rem;"></textarea>
+                </div>
+                <div class="input-actions" style="margin-top: 2rem;">
+                  <div id="submit-yojana-btn" class="btn btn-primary btn-full btn-magnetic" style="cursor: pointer; text-align: center;">💸 FIND ELIGIBLE SCHEMES →</div>
                 </div>
               </div>
 

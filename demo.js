@@ -649,6 +649,188 @@ if (submitPilBtn) {
   });
 }
 
+// ==========================================
+// THE NEXT-GEN 5 FEATURES HANDLERS
+// ==========================================
+
+const submitKisanBtn = document.getElementById('submit-kisan-btn');
+if (submitKisanBtn) {
+  submitKisanBtn.addEventListener('click', async () => {
+    const details = document.getElementById('kisan-details').value.trim();
+    if (!details) { alert("Please provide agricultural dispute details."); return; }
+    
+    showLoading("Checking Fasal Bima & Agricultural Laws...");
+    const res = await callAPI('kisan/analyze', { details: details });
+    
+    if (!res.error) {
+       dynamicContainer.innerHTML = `
+        <section class="result-box bento-box">
+          <div class="section-label" style="color:#00ff88">👨‍🌾 KISAN TRACKER ANALYSIS</div>
+          <h2 style="color:var(--monolith-gold); margin-top:1rem;">Category: ${res.category}</h2>
+          <div style="margin-top: 1rem; color: var(--text-bright); font-size:1.1rem; line-height: 1.6;">${res.analysis}</div>
+          
+          <div style="margin-top: 1.5rem; background: rgba(0,255,136,0.05); padding: 1rem; border-left: 3px solid #00ff88;">
+            <strong>Relevant Laws / Schemes:</strong><br/>
+            ${res.laws.join(', ')}
+          </div>
+          
+          <div style="margin-top: 1.5rem;">
+            <strong style="color:var(--text-bright)">Immediate Action Plan:</strong><br/>
+            <ul style="color:var(--text-mid); margin-top:0.5rem; padding-left:1.5rem;">
+              ${res.action_plan.map(s => "<li>" + s + "</li>").join('')}
+            </ul>
+          </div>
+        </section>
+      `;
+    }
+    hideLoading();
+  });
+}
+
+const submitTrafficBtn = document.getElementById('submit-traffic-btn');
+if (submitTrafficBtn) {
+  submitTrafficBtn.addEventListener('click', async () => {
+    const details = document.getElementById('traffic-details').value.trim();
+    if (!details) { alert("Please provide e-challan details."); return; }
+    
+    showLoading("Analyzing E-Challan Validity...");
+    const res = await callAPI('traffic/analyze', { details: details });
+    
+    if (!res.error) {
+       dynamicContainer.innerHTML = `
+        <section class="result-box bento-box">
+          <div class="section-label" style="color:var(--monolith-gold)">🚦 TRAFFIC CHALLAN ANALYZER</div>
+          <h2 style="color:#ff4444; margin-top:1rem;">Violation: ${res.violation_type}</h2>
+          <div style="margin-top: 1rem; color: var(--text-bright);">${res.validity_check}</div>
+          
+          <div style="margin-top: 1.5rem; color: var(--text-mid);">
+            <strong>Applicable Sections:</strong> ${res.laws.join(', ')}
+          </div>
+          
+          <div style="margin-top: 1.5rem; padding: 1rem; border: 1px dotted var(--monolith-gold);">
+            <strong style="color:var(--monolith-gold)">Lok Adalat Negotiation Angle:</strong><br/>
+            ${res.negotiation_angle}
+          </div>
+          
+          <ul style="margin-top: 1.5rem; color:var(--text-mid); padding-left:1.5rem;">
+            ${res.steps.map(s => "<li>" + s + "</li>").join('')}
+          </ul>
+        </section>
+      `;
+    }
+    hideLoading();
+  });
+}
+
+const submitBailBtn = document.getElementById('submit-bail-btn');
+if (submitBailBtn) {
+  submitBailBtn.addEventListener('click', async () => {
+    const details = document.getElementById('bail-details').value.trim();
+    if (!details) { alert("Please provide incident/offense details."); return; }
+    
+    showLoading("Calculating Bail Eligibility (BNSS)...");
+    const res = await callAPI('bail/calculate', { details: details });
+    
+    if (!res.error) {
+       const isBailable = res.offense_classification.toLowerCase().includes('bailable');
+       const color = isBailable ? '#00e676' : '#ff4444';
+       
+       dynamicContainer.innerHTML = `
+        <section class="result-box bento-box">
+          <div class="section-label" style="color:${color}">⚖️ ZAMANAT (BAIL) CALCULATOR</div>
+          <h2 style="color:${color}; margin-top:1rem; font-size:2rem;">${res.offense_classification}</h2>
+          <div style="color:var(--text-mid);">Severity: <strong>${res.severity}</strong></div>
+          
+          <div style="margin-top: 1.5rem; font-size:1.2rem; line-height:1.5; color:var(--text-bright);">
+            ${res.bail_eligibility}
+          </div>
+          <div style="margin-top: 1rem; color:var(--text-mid);">${res.explanation}</div>
+          
+          <div style="margin-top: 1.5rem; background:rgba(255,255,255,0.05); padding:1rem;">
+            <strong style="color:var(--monolith-gold)">Documents Needed for Bail Bond:</strong><br/>
+            <ul style="margin-top:0.5rem; padding-left:1.5rem;">
+              ${res.documents_needed.map(s => "<li>" + s + "</li>").join('')}
+            </ul>
+          </div>
+        </section>
+      `;
+    }
+    hideLoading();
+  });
+}
+
+const submitMahilaBtn = document.getElementById('submit-mahila-btn');
+if (submitMahilaBtn) {
+  submitMahilaBtn.addEventListener('click', async () => {
+    const details = document.getElementById('mahila-details').value.trim();
+    if (!details) { alert("Please provide the situation details."); return; }
+    
+    showLoading("Activating Mahila Kavach Protocol...");
+    const res = await callAPI('mahila/protect', { details: details });
+    
+    if (!res.error) {
+       dynamicContainer.innerHTML = `
+        <section class="result-box bento-box" style="border-color: #ff4444;">
+          <div class="section-label" style="color:#ff4444">🚺 MAHILA KAVACH RIGHTS DEFENDER</div>
+          <div style="margin-top: 1rem;">
+            <strong style="color:#ffaaAA">Rights Violated:</strong> ${res.rights_violated.join(', ')}<br/>
+            <strong style="color:var(--text-mid)">Laws:</strong> ${res.laws.join(', ')}
+          </div>
+          
+          <div style="margin-top: 1.5rem; background: rgba(255,0,0,0.1); padding: 1.5rem; border-left: 5px solid #ff4444; font-size: 1.2rem; line-height: 1.5;">
+            <strong style="color:#ff4444">EMERGENCY ACTION:</strong><br/>
+            ${res.immediate_action}
+          </div>
+          
+          <div style="margin-top: 1.5rem; border: 1px dashed var(--monolith-gold); padding: 1rem;">
+            <strong style="color:var(--monolith-gold)">Panic SOS Message Draft (Copy & Send):</strong><br/>
+            <p style="margin-top:0.5rem; color:var(--text-bright); font-family:monospace;">${res.sos_message_draft}</p>
+          </div>
+        </section>
+      `;
+    }
+    hideLoading();
+  });
+}
+
+const submitYojanaBtn = document.getElementById('submit-yojana-btn');
+if (submitYojanaBtn) {
+  submitYojanaBtn.addEventListener('click', async () => {
+    const details = document.getElementById('yojana-details').value.trim();
+    if (!details) { alert("Please provide demographics."); return; }
+    
+    showLoading("Matching with State & Central Government Schemes...");
+    const res = await callAPI('yojana/match', { details: details });
+    
+    if (!res.error) {
+       let schemesHtml = "";
+       res.matching_schemes.forEach(sc => {
+          schemesHtml += `<div style="margin-top:1rem; padding:1rem; background:rgba(255,184,0,0.05); border-left:3px solid var(--monolith-gold);">
+             <strong style="color:var(--monolith-gold); font-size:1.2rem;">${sc.name}</strong>
+             <p style="color:var(--text-bright); font-size:0.95rem; margin-top:0.5rem;">${sc.description}</p>
+             <div style="margin-top:0.5rem; color:#00ff88; font-size:0.9rem;">📍 Application: ${sc.how_to_apply}</div>
+          </div>`;
+       });
+       
+       dynamicContainer.innerHTML = `
+        <section class="result-box bento-box">
+          <div class="section-label" style="color:#00e676">💸 YOJANA (SCHEME) TRACKER</div>
+          <h2 style="color:var(--text-bright); margin-top:1rem;">Eligibility: <span style="color:${res.eligible ? '#00e676' : '#ff4444'}">${res.eligible ? 'Matches Found' : 'No Immediate Match'}</span></h2>
+          
+          <div style="margin-top: 1.5rem;">
+            ${schemesHtml}
+          </div>
+          
+          <div style="margin-top: 1.5rem; color:#ffaaAA; font-size:0.9rem;">
+            <strong>Note:</strong> ${res.warning}
+          </div>
+        </section>
+      `;
+    }
+    hideLoading();
+  });
+}
+
 // Removed old static tab switching code. The new tab logic is handled correctly at the top.
 
 // ==================== SHAKE ANIMATION ====================
