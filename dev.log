@@ -1,0 +1,20 @@
+
+> teraaz-ai@0.0.0 dev
+> concurrently "npm run dev:frontend" "npm run dev:backend"
+
+[0] 
+[0] > teraaz-ai@0.0.0 dev:frontend
+[0] > vite
+[0] 
+[1] 
+[1] > teraaz-ai@0.0.0 dev:backend
+[1] > node server.js
+[1] 
+[1] [dotenv@17.3.1] injecting env (2) from .env -- tip: ⚡️ secrets for agents: https://dotenvx.com/as2
+[0] 
+[0]   VITE v5.4.21  ready in 131 ms
+[0] 
+[0]   ➜  Local:   http://localhost:5173/
+[0]   ➜  Network: use --host to expose
+[1] [dotenv@17.3.1] injecting env (0) from .env -- tip: 🔐 encrypt with Dotenvx: https://dotenvx.com
+[1] [TERAAZ Backend] Secure API running on http://localhost:3000

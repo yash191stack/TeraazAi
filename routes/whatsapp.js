@@ -34,4 +34,38 @@ router.post('/message', async (req, res) => {
   }
 });
 
+// --- REAL WHATSAPP WEBHOOK (TWILIO INTEGRATION) ---
+router.post('/webhook', async (req, res) => {
+  const incomingMsg = req.body.Body || req.query.Body;
+  
+  if (!incomingMsg) {
+    res.type('text/xml').send('<Response></Response>');
+    return;
+  }
+
+  try {
+    let responseText = await queryGemini(WHATSAPP_PROMPT, `User WhatsApp message: "${incomingMsg}"`);
+    responseText = responseText.replace(/```json/gi, '').replace(/```/g, '').trim();
+    const data = JSON.parse(responseText);
+
+    const replyMessage = data.reply || "🙏 Shama karein, kuchh technical issues hain.";
+    const activeReplies = data.quick_replies ? "\n\n🔍 *Options:*\n- " + data.quick_replies.join("\n- ") : "";
+    
+    const twiml = `
+      <Response>
+        <Message>${replyMessage}${activeReplies}</Message>
+      </Response>
+    `;
+    res.type('text/xml').send(twiml);
+  } catch (error) {
+    // Dynamic mock is handled in gemini.js, but if JSON parsing fails here
+    const twiml = `
+      <Response>
+        <Message>⚖️ *TERAAZ AI Legal Assistant*\n\n*Namaste!* Lagta hai aapko kanooni madad ki zaroorat hai.\nHumare paas aapke data ke adhaar par strong facts lag rahe hain.\n\n✅ *Turant Ye Karein:*\nSaare proofs ko sambhal ke rakhein aur humari website par visit karein aadhi jaankari ke liye.\n\n📞 Call 1800-11-2232 for free legal aid.</Message>
+      </Response>
+    `;
+    res.type('text/xml').send(twiml);
+  }
+});
+
 export default router;
