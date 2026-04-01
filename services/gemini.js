@@ -1,30 +1,33 @@
-import { GoogleGenerativeAI } from "@google/generative-ai";
+import OpenAI from "openai";
 import dotenv from "dotenv";
 
 dotenv.config();
 
-// Initialize Gemini with the strictly private API Key
-const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
+// Initialize Grok via OpenAI SDK
+const openai = new OpenAI({
+    apiKey: process.env.GROK_API_KEY,
+    baseURL: "https://api.xai.com/v1"
+});
 
 /**
- * Common entry point for sending a prompt to Gemini.
- * @param {string} systemInstruction - The persona and instruction for Gemini
+ * Common entry point for sending a prompt to AI.
+ * @param {string} systemInstruction - The persona and instruction for AI
  * @param {string} userPrompt - The context or question provided by the user
  */
 export const queryGemini = async (systemInstruction, userPrompt) => {
     try {
-        const strictModel = genAI.getGenerativeModel({
-            model: "gemini-2.0-flash",
-            systemInstruction: systemInstruction,
-            generationConfig: {
-                temperature: 0.2, // Low temperature for factual legal data
-            }
+        const response = await openai.chat.completions.create({
+            model: "grok-2-latest",
+            messages: [
+                { role: "system", content: systemInstruction },
+                { role: "user", content: userPrompt }
+            ],
+            temperature: 0.2, // Low temperature for factual legal data
         });
 
-        const result = await strictModel.generateContent(userPrompt);
-        return result.response.text();
+        return response.choices[0].message.content;
     } catch (error) {
-        console.error("Gemini API Error (Rate Limit Hit). Falling back to Mock Data for testing.");
+        console.error("Grok API Error. Falling back to Mock Data for testing.", error);
         
         // Determine requested language from the prompt
         const isHindi = userPrompt.includes('language: Hindi') || userPrompt.includes('language: Hinglish');
